@@ -1,0 +1,29 @@
+specVersion: 0.0.2
+description: ETHPool on Ropsten.
+repository: https://github.com/WZChallenger/BTS_TestETHPoolSubgraph
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: ETHPool
+    network: kovan
+    source:
+      address: "0xE71565Db15f68b4cf36d576e5F9Bc8eF0F56B30f"
+      abi: ETHPool
+      startBlock: 12287092
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.3
+      language: wasm/assemblyscript
+      file: ETHPool\ETHPool.wasm
+      entities:
+        - Comptroller
+        - Market
+        - Account
+        - AccountCToken
+      abis:
+        - name: ETHPool
+          file: ETHPool\abi\ETHPool.json
+      eventHandlers:
+        - event: Deposit(indexed address,uint256)
+          handler: handleDeposit
