@@ -6,7 +6,7 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: ETHPool
-    network: kovan
+    network: ropsten
     source:
       address: "0xE71565Db15f68b4cf36d576e5F9Bc8eF0F56B30f"
       abi: ETHPool
